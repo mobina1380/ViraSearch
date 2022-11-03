@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Vira - ویرا</title>
+    <link href="images/favicon2.png"  sizes="" rel="icon">
+  <link rel="stylesheet" href="css/style.css">
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Dosis:400,600&amp;display=swap'>
+    <link href="https://v1.fontapi.ir/css/Vazir" rel="stylesheet">
+    <link rel="stylesheet" href="lib/animate/animate.css">
+    <link rel="stylesheet" href="lib/lightbox/css/lightbox.css">
+    <link rel="preconnect" href="//fdn.fontcdn.ir">
+    <link rel="preconnect" href="//v1.fontapi.ir">
+    <link href="https://v1.fontapi.ir/css/Vazir" rel="stylesheet">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.rtl.min.css" integrity="sha384-gXt9imSW0VcJVHezoNQsP+TNrjYXoGcrqBZJpry9zJt8PCQjobwmhMGaDHTASo9N" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+</head>
+<style>
+    body{
+        font-family: Vazir, sans-serif !important;
+
+    }
+    .loader_bg {
+        position: fixed;
+        z-index: 9999999;
+        width: 100%;
+        height: 100%;
+    }
+    .loader_bg, .preloader {
+        display: flex;
+    }
+
+    .loader_bg {
+        background:#030341 ;
+
+        color: #3df1f1;
+        font: 1em Dosis, sans-serif;
+        height: 100vh;
+        line-height: 1.5;
+        perspective: 40em;
+    }
+
+    .preloader {
+        animation: tiltSpin 8s linear infinite;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+        width: 17em;
+        height: 17em;
+    }
+    .preloader, .preloader__ring {
+        transform-style: preserve-3d;
+    }
+    .preloader__ring {
+        animation-name: spin;
+        animation-duration: 4s;
+        animation-timing-function: inherit;
+        animation-iteration-count: inherit;
+        font-size: 2em;
+        position: relative;
+        height: 3rem;
+        width: 1.5rem;
+    }
+    .preloader__ring:nth-child(even) {
+        animation-direction: reverse;
+    }
+    .preloader__sector {
+        font-weight: 600;
+        position: absolute;
+        top: 0;
+        left: 0;
+        text-align: center;
+        text-transform: uppercase;
+        transform: translateZ(7rem);
+    }
+    .preloader__sector, .preloader__sector:empty:before {
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+    }
+    .preloader__sector:empty:before {
+        background: linear-gradient(transparent 45%, currentColor 45% 55%, transparent 55%);
+        content: "";
+    }
+    .preloader__sector:nth-child(2) {
+        transform: rotateY(12deg) translateZ(7rem);
+    }
+    .preloader__sector:nth-child(3) {
+        transform: rotateY(24deg) translateZ(7rem);
+    }
+    .preloader__sector:nth-child(4) {
+        transform: rotateY(36deg) translateZ(7rem);
+    }
+    .preloader__sector:nth-child(5) {
+        transform: rotateY(48deg) translateZ(7rem);
+    }
+    .preloader__sector:nth-child(6) {
+        transform: rotateY(60deg) translateZ(7rem);
+    }
+    .preloader__sector:nth-child(7) {
+        transform: rotateY(72deg) translateZ(7rem);
+    }
+    .preloader__sector:nth-child(8) {
+        transform: rotateY(84deg) translateZ(7rem);
+    }
+    .preloader__sector:nth-child(9) {
+        transform: rotateY(96deg) translateZ(7rem);
+    }
+    .preloader__sector:nth-child(10) {
+        transform: rotateY(108deg) translateZ(7rem);
+    }
+    .preloader__sector:nth-child(11) {
+        transform: rotateY(120deg) translateZ(7rem);
+    }
+    .preloader__sector:nth-child(12) {
+        transform: rotateY(132deg) translateZ(7rem);
+    }
+    .preloader__sector:nth-child(13) {
+        transform: rotateY(144deg) translateZ(7rem);
+    }
+    .preloader__sector:nth-child(14) {
+        transform: rotateY(156deg) translateZ(7rem);
+    }
+    .preloader__sector:nth-child(15) {
+        transform: rotateY(168deg) translateZ(7rem);
+    }
+    .preloader__sector:nth-child(16) {
+        transform: rotateY(180deg) translateZ(7rem);
+    }
+    .preloader__sector:nth-child(17) {
+        transform: rotateY(192deg) translateZ(7rem);
+    }
+    .preloader__sector:nth-child(18) {
+        transform: rotateY(204deg) translateZ(7rem);
+    }
+    .preloader__sector:nth-child(19) {
+        transform: rotateY(216deg) translateZ(7rem);
+    }
+    .preloader__sector:nth-child(20) {
+        transform: rotateY(228deg) translateZ(7rem);
+    }
+    .preloader__sector:nth-child(21) {
+        transform: rotateY(240deg) translateZ(7rem);
+    }
+    .preloader__sector:nth-child(22) {
+        transform: rotateY(252deg) translateZ(7rem);
+    }
+    .preloader__sector:nth-child(23) {
+        transform: rotateY(264deg) translateZ(7rem);
+    }
+    .preloader__sector:nth-child(24) {
+        transform: rotateY(276deg) translateZ(7rem);
+    }
+    .preloader__sector:nth-child(25) {
+        transform: rotateY(288deg) translateZ(7rem);
+    }
+    .preloader__sector:nth-child(26) {
+        transform: rotateY(300deg) translateZ(7rem);
+    }
+    .preloader__sector:nth-child(27) {
+        transform: rotateY(312deg) translateZ(7rem);
+    }
+    .preloader__sector:nth-child(28) {
+        transform: rotateY(324deg) translateZ(7rem);
+    }
+    .preloader__sector:nth-child(29) {
+        transform: rotateY(336deg) translateZ(7rem);
+    }
+    .preloader__sector:nth-child(30) {
+        transform: rotateY(348deg) translateZ(7rem);
+    }
+
+    /* Animations */
+    @keyframes tiltSpin {
+        from {
+            transform: rotateY(0) rotateX(30deg);
+        }
+        to {
+            transform: rotateY(1turn) rotateX(30deg);
+        }
+    }
+    @keyframes spin {
+        from {
+            transform: rotateY(0);
+        }
+        to {
+            transform: rotateY(1turn);
+        }
+    }
+    input{
+        text-align: right;
+        font-family: 'Vazir', sans-serif !important;
+    }
+  p{
+      font-family: 'Vazir', sans-serif !important;
+  }
+    .box2 {
+        margin: 0;
+        height: 100vh;
+        font-weight: 100;
+        background: radial-gradient(#040491,#030341);
+        -webkit-overflow-Y: hidden;
+        -moz-overflow-Y: hidden;
+        -o-overflow-Y: hidden;
+        overflow-y: hidden;
+        -webkit-animation: fadeIn 1 1s ease-out;
+        -moz-animation: fadeIn 1 1s ease-out;
+        -o-animation: fadeIn 1 1s ease-out;
+        animation: fadeIn 1 1s ease-out;
+    }
+
+    .box2 button{
+        position: absolute;
+        border: 2px solid white;
+        background: transparent;
+
+        color: white;
+        width: 250px;
+        height: 50px;
+        font-size: 2em;
+        border-radius: 5px;
+        opacity: .5;
+        top: 60vh;
+        bottom: 0px;
+        left: 0px;
+        right: 0px;
+        margin: auto;
+        transition: .3s;
+    }
+
+    box2 button:hover{
+        border: 2px solid #104F55;
+        background-color: rgba(365,365,365,0.5);
+        cursor: pointer;
+        color: #104F55;
+        opacity: .8;
+        transition: .3s;
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    }
+
+   .box2 .light {
+        position: absolute;
+        width: 0px;
+        opacity: .75;
+        background-color: white;
+        box-shadow: #e9f1f1 0px 0px 20px 2px;
+        opacity: 0;
+        top: 100vh;
+        bottom: 0px;
+        left: 0px;
+        right: 0px;
+        margin: auto;
+    }
+
+  .box2  .x1{
+        -webkit-animation: floatUp 4s infinite linear;
+        -moz-animation: floatUp 4s infinite linear;
+        -o-animation: floatUp 4s infinite linear;
+        animation: floatUp 4s infinite linear;
+        -webkit-transform: scale(1.0);
+        -moz-transform: scale(1.0);
+        -o-transform: scale(1.0);
+        transform: scale(1.0);
+    }
+
+   .box2 .x2{
+        -webkit-animation: floatUp 7s infinite linear;
+        -moz-animation: floatUp 7s infinite linear;
+        -o-animation: floatUp 7s infinite linear;
+        animation: floatUp 7s infinite linear;
+        -webkit-transform: scale(1.6);
+        -moz-transform: scale(1.6);
+        -o-transform: scale(1.6);
+        transform: scale(1.6);
+        left: 15%;
+    }
+
+  .box2  .x3{
+        -webkit-animation: floatUp 2.5s infinite linear;
+        -moz-animation: floatUp 2.5s infinite linear;
+        -o-animation: floatUp 2.5s infinite linear;
+        animation: floatUp 2.5s infinite linear;
+        -webkit-transform: scale(.5);
+        -moz-transform: scale(.5);
+        -o-transform: scale(.5);
+        transform: scale(.5);
+        left: -15%;
+    }
+
+   .box2 .x4{
+        -webkit-animation: floatUp 4.5s infinite linear;
+        -moz-animation: floatUp 4.5s infinite linear;
+        -o-animation: floatUp 4.5s infinite linear;
+        animation: floatUp 4.5s infinite linear;
+        -webkit-transform: scale(1.2);
+        -moz-transform: scale(1.2);
+        -o-transform: scale(1.2);
+        transform: scale(1.2);
+        left: -34%;
+    }
+
+   .box2 .x5{
+        -webkit-animation: floatUp 8s infinite linear;
+        -moz-animation: floatUp 8s infinite linear;
+        -o-animation: floatUp 8s infinite linear;
+        animation: floatUp 8s infinite linear;
+        -webkit-transform: scale(2.2);
+        -moz-transform: scale(2.2);
+        -o-transform: scale(2.2);
+        transform: scale(2.2);
+        left: -57%;
+    }
+
+   .box2 .x6{
+        -webkit-animation: floatUp 3s infinite linear;
+        -moz-animation: floatUp 3s infinite linear;
+        -o-animation: floatUp 3s infinite linear;
+        animation: floatUp 3s infinite linear;
+        -webkit-transform: scale(.8);
+        -moz-transform: scale(.8);
+        -o-transform: scale(.8);
+        transform: scale(.8);
+        left: -81%;
+    }
+
+  .box2  .x7{
+        -webkit-animation: floatUp 5.3s infinite linear;
+        -moz-animation: floatUp 5.3s infinite linear;
+        -o-animation: floatUp 5.3s infinite linear;
+        animation: floatUp 5.3s infinite linear;
+        -webkit-transform: scale(3.2);
+        -moz-transform: scale(3.2);
+        -o-transform: scale(3.2);
+        transform: scale(3.2);
+        left: 37%;
+    }
+
+   .box2 .x8{
+        -webkit-animation: floatUp 4.7s infinite linear;
+        -moz-animation: floatUp 4.7s infinite linear;
+        -o-animation: floatUp 4.7s infinite linear;
+        animation: floatUp 4.7s infinite linear;
+        -webkit-transform: scale(1.7);
+        -moz-transform: scale(1.7);
+        -o-transform: scale(1.7);
+        transform: scale(1.7);
+        left: 62%;
+    }
+
+    .box2 .x9{
+        -webkit-animation: floatUp 4.1s infinite linear;
+        -moz-animation: floatUp 4.1s infinite linear;
+        -o-animation: floatUp 4.1s infinite linear;
+        animation: floatUp 4.1s infinite linear;
+        -webkit-transform: scale(0.9);
+        -moz-transform: scale(0.9);
+        -o-transform: scale(0.9);
+        transform: scale(0.9);
+        left: 85%;
+    }
+
+  .box2  button:focus{
+        outline: none;
+    }
+
+    @-webkit-keyframes floatUp{
+        0%{top: 100vh; opacity: 0;}
+        25%{opacity: 1;}
+        50%{top: 0vh; opacity: .8;}
+        75%{opacity: 1;}
+        100%{top: -100vh; opacity: 0;}
+    }
+    @-moz-keyframes floatUp{
+        0%{top: 100vh; opacity: 0;}
+        25%{opacity: 1;}
+        50%{top: 0vh; opacity: .8;}
+        75%{opacity: 1;}
+        100%{top: -100vh; opacity: 0;}
+    }
+    @-o-keyframes floatUp{
+        0%{top: 100vh; opacity: 0;}
+        25%{opacity: 1;}
+        50%{top: 0vh; opacity: .8;}
+        75%{opacity: 1;}
+        100%{top: -100vh; opacity: 0;}
+    }
+    @keyframes floatUp{
+        0%{top: 100vh; opacity: 0;}
+        25%{opacity: 1;}
+        50%{top: 0vh; opacity: .8;}
+        75%{opacity: 1;}
+        100%{top: -100vh; opacity: 0;}
+    }
+
+    .box2 .header{
+        position: absolute;
+        top: 60%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-family: 'Roboto', sans-serif;
+        font-weight: 200;
+        color: white;
+        font-size: 2em;
+    }
+
+   .box2  #head1, #head2,#head3, #head4, #head5{
+        opacity: 0;
+    }
+
+    .box2 #head1{
+        -webkit-animation: fadeOut 1 3s ease-in;
+        -moz-animation: fadeOut 1 3s ease-in;
+        -o-animation: fadeOut 1 3s ease-in;
+        animation: fadeOut 1 3s ease-in;
+    }
+
+   .box2 #head2{
+        -webkit-animation: fadeOut 1 3s ease-in;
+        -moz-animation: fadeOut 1 3s ease-in;
+        -o-animation: fadeOut 1 3s ease-in;
+        animation: fadeOut 1 3s ease-in;
+        -webkit-animation-delay: 3s;
+        -moz-animation-delay: 3s;
+        -o-animation-delay: 3s;
+        animation-delay: 3s;
+    }
+
+   .box2  #head3{
+        -webkit-animation: fadeOut 1 3s ease-in;
+        -moz-animation: fadeOut 1 3s ease-in;
+        -o-animation: fadeOut 1 3s ease-in;
+        animation: fadeOut 1 3s ease-in;
+        -webkit-animation-delay: 5s;
+        -moz-animation-delay: 5s;
+        -o-animation-delay: 5s;
+        animation-delay: 5s;
+    }
+
+   .box2  #head4{
+        -webkit-animation: fadeOut 1 3s ease-in;
+        -moz-animation: fadeOut 1 3s ease-in;
+        -o-animation: fadeOut 1 3s ease-in;
+        animation: fadeOut 1 3s ease-in;
+        -webkit-animation-delay: 10s;
+        -moz-animation-delay: 10s;
+        -o-animation-delay: 10s;
+        animation-delay: 10s;
+    }
+
+   .box2 #head5{
+        -webkit-animation: finalFade 1 3s ease-in;
+        -moz-animation: finalFade 1 3s ease-in;
+        -o-animation: finalFade 1 3s ease-in;
+        animation: finalFade 1 3s ease-in;
+        -webkit-animation-fill-mode: forwards;
+        -moz-animation-fill-mode: forwards;
+        -o-animation-fill-mode: forwards;
+        animation-fill-mode: forwards;
+        -webkit-animation-delay: 15s;
+        -moz-animation-delay: 15s;
+        -o-animation-delay: 15s;
+        animation-delay: 15s;
+    }
+
+    @-webkit-keyframes fadeIn{
+        from{opacity: 0;}
+        to{opacity: 1;}
+    }
+
+    @-moz-keyframes fadeIn{
+        from{opacity: 0;}
+        to{opacity: 1;}
+    }
+
+    @-o-keyframes fadeIn{
+        from{opacity: 0;}
+        to{opacity: 1;}
+    }
+
+    @keyframes fadeIn{
+        from{opacity: 0;}
+        to{opacity: 1;}
+    }
+
+    @-webkit-keyframes fadeOut{
+        0%{opacity: 0;}
+        30%{opacity: 1;}
+        80%{opacity: .9;}
+        100%{opacity: 0;}
+    }
+
+    @-moz-keyframes fadeOut{
+        0%{opacity: 0;}
+        30%{opacity: 1;}
+        80%{opacity: .9;}
+        100%{opacity: 0;}
+    }
+
+    @-o-keyframes fadeOut{
+        0%{opacity: 0;}
+        30%{opacity: 1;}
+        80%{opacity: .9;}
+        100%{opacity: 0;}
+    }
+
+    @keyframes fadeOut{
+        0%{opacity: 0;}
+        30%{opacity: 1;}
+        80%{opacity: .9;}
+        100%{opacity: 0;}
+    }
+
+    @-webkit-keyframes finalFade{
+        0%{opacity: 0;}
+        30%{opacity: 1;}
+        80%{opacity: .9;}
+        100%{opacity: 1;}
+    }
+
+    @-moz-keyframes finalFade{
+        0%{opacity: 0;}
+        30%{opacity: 1;}
+        80%{opacity: .9;}
+        100%{opacity: 1;}
+    }
+
+    @-o-keyframes finalFade{
+        0%{opacity: 0;}
+        30%{opacity: 1;}
+        80%{opacity: .9;}
+        100%{opacity: 1;}
+    }
+
+    @keyframes finalFade{
+        0%{opacity: 0;}
+        30%{opacity: 1;}
+        80%{opacity: .9;}
+        100%{opacity: 1;}
+    }
+
+    #footer{
+        font-family: 'Roboto', sans-serif;
+        font-size: 1.2em;
+        color: white;
+        position: fixed;
+        -webkit-transform: translate(95vw,90vh);
+        -moz-transform: translate(95vw,90vh);
+        transform: translate(95vw,90vh);
+        transform: translate(95vw,90vh);
+    }
+  h5,h6,a{
+      font-family: Vazir, sans-serif !important;
+  }
+  /*////////////////////////*/
+
+
+    /* Demo Styles */
+    #content {
+
+        width: 100%;
+       height: 100vh;
+    }
+
+    h1 {
+        font-size: 40px;
+    }
+
+    /* The Loader */
+    #loader-wrapper {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 10;
+        overflow: hidden;
+    }
+    .no-js #loader-wrapper {
+        display: none;
+    }
+
+    #loader {
+        display: block;
+        position: relative;
+        left: 50%;
+        top: 50%;
+        width: 150px;
+        height: 150px;
+        margin: -75px 0 0 -75px;
+        border-radius: 50%;
+        border: 3px solid transparent;
+        border-top-color: #16a085;
+        -webkit-animation: spin 1.7s linear infinite;
+        animation: spin 1.7s linear infinite;
+        z-index: 11;
+    }
+    #loader:before {
+        content: "";
+        position: absolute;
+        top: 5px;
+        left: 5px;
+        right: 5px;
+        bottom: 5px;
+        border-radius: 50%;
+        border: 3px solid transparent;
+        border-top-color: #e74c3c;
+        -webkit-animation: spin-reverse 0.6s linear infinite;
+        animation: spin-reverse 0.6s linear infinite;
+    }
+    #loader:after {
+        content: "";
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        right: 15px;
+        bottom: 15px;
+        border-radius: 50%;
+        border: 3px solid transparent;
+        border-top-color: #f9c922;
+        -webkit-animation: spin 1s linear infinite;
+        animation: spin 1s linear infinite;
+    }
+
+    @-webkit-keyframes spin {
+        0% {
+            -webkit-transform: rotate(0deg);
+        }
+        100% {
+            -webkit-transform: rotate(360deg);
+        }
+    }
+    @keyframes spin {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+    @-webkit-keyframes spin-reverse {
+        0% {
+            -webkit-transform: rotate(0deg);
+        }
+        100% {
+            -webkit-transform: rotate(-360deg);
+        }
+    }
+    @keyframes spin-reverse {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(-360deg);
+        }
+    }
+    #loader-wrapper .loader-section {
+        position: fixed;
+        top: 0;
+        width: 51%;
+        height: 100%;
+        background: #030341;
+        z-index: 10;
+    }
+
+    #loader-wrapper .loader-section.section-left {
+        left: 0;
+    }
+
+    #loader-wrapper .loader-section.section-right {
+        right: 0;
+    }
+
+    /* Loaded styles */
+    .loaded #loader-wrapper .loader-section.section-left {
+        transform: translateX(-100%);
+        transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    }
+
+    .loaded #loader-wrapper .loader-section.section-right {
+        transform: translateX(100%);
+        transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    }
+
+    .loaded #loader {
+        opacity: 0;
+        transition: all 0.3s ease-out;
+    }
+
+    .loaded #loader-wrapper {
+        visibility: hidden;
+        transform: translateY(-100%);
+        transition: all 0.3s 1s ease-out;
+    }
+
+
+
+
+
+
+    /*//////////////*/
+
+    .user-info-dropdown {
+        padding: 5px 10px 5px 0;
+    }
+    .dropdown, .dropleft, .dropright, .dropup {
+        position: relative;
+    }
+    .user-info-dropdown .dropdown-toggle {
+        display: block;
+        padding: 5px 0;
+        font-size: 16px;
+    }
+    .dropdown-toggle {
+        white-space: nowrap;
+    }
+    .user-info-dropdown .dropdown-menu {
+        min-width: 185px;
+    }
+    .dropdown-menu.show {
+        display: block;
+    }
+    .dropdown-menu {
+        border: 0;
+        padding: 0;
+        overflow: hidden;
+        border-radius: 10px;
+        -webkit-box-shadow: 0 0 28px rgb(0 0 0 / 10%);
+        box-shadow: 0 0 28px rgb(0 0 0 / 10%);
+    }
+    .user-info-dropdown .dropdown-toggle .user-icon {
+        width: 52px;
+        height: 52px;
+        font-size: 24px;
+        background: #ebeff3;
+        color: #1b00ff;
+        line-height: 52px;
+        text-align: center;
+        display: inline-block;
+        vertical-align: middle;
+        border-radius: 100%;
+        -webkit-box-shadow: 0 0 10px rgb(0 0 0 / 18%);
+        box-shadow: 0 0 10px rgb(0 0 0 / 18%);
+    }
+    .user-info-dropdown .dropdown-toggle {
+        display: block;
+        padding: 5px 0;
+        font-size: 16px;
+    }
+    .border-radius-100, .user-info-dropdown .dropdown-toggle .user-icon img {
+        border-radius: 100%;
+    }
+    img {
+        border: 0;
+        vertical-align: top;
+        max-width: 100%;
+        height: auto;
+    }
+</style>
+<body>
+<!-- partial:index.partial.html -->
+<link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+
+<body>
+
+
+<div id="loader-wrapper">
+    <div id="loader">
+        <div><img src="images/logo2.png" alt="" style="  margin: 0;position:absolute;top: 50%;left: 50%; transform: translate(-50%, -50%);"></div>
+
+    </div>
+
+    <div class="loader-section section-left"></div>
+    <div class="loader-section section-right"></div>
+
+</div>
+
+
+
+<div id="content">
+    <nav class="navbar navbar-expand-lg navbar-light ">
+        <div class="container-fluid">
+<!--            <a class="navbar-brand" href="#">Navbar</a>-->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+                    <li class="nav-item dropdown mt-2">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            علی مرادی
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#">پروفایل</a></li>
+                            <li><a class="dropdown-item" href="#">تنظیمات</a></li>
+                            <li><a class="dropdown-item" href="#">خروج از حساب</a></li>
+
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+<!--                        <a class="nav-link" href="#">Link</a>-->
+<!--                                    <a class="navbar-brand" href="#">Navbar</a>-->
+                        <span class="user-icon"><img src="images/pp.png" style="width: 50px;height: 50px;border-radius: 50%" alt=""></span>
+
+                    </li>
+
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+    <div class="box2">
+
+        <div class="d-flex flex-column justify-content-center align-items-center mt-5" style="width: 100%;height: 200px;margin-left: auto">
+            <img src="images/ll.png"  style="width: 200px;height: 200px" alt="" class="wow slideInDown mt-5" data-wow-delay="2s" >
+<!--            <img src="logo2.png" alt="" style="width: 80px;height: 60px" class="wow slideInDown" data-wow-delay="3s" >-->
+<!--            <img src="logo3.png" alt="" style="width: 120px;height: 50px" class="wow slideInDown" data-wow-delay="3s">-->
+            <div class="hero2 mt-5" style="margin-top: 5%">
+               <div class="row"><div class="col-lg-12 ">
+                   <div id="searchBox" class="wow slideInDown" data-wow-delay="2.2s">
+                       <!--                        <i class="fas fa-microphone fa-2x pr-3"  ></i>-->
+                       <img src="images/mic.svg"  alt="">
+                       <input type="text" placeholder="جست و جو" />
+                       <i class="fas fa-search text-secondary " id="googleIcon"></i>
+                   </div>
+               </div></div>
+
+            </div>
+        </div>
+        <div class='light x1'></div>
+        <div class='light x2'></div>
+        <div class='light x3'></div>
+        <div class='light x4'></div>
+        <div class='light x5'></div>
+        <div class='light x6'></div>
+        <div class='light x7'></div>
+        <div class='light x8'></div>
+        <div class='light x9'></div>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+  </body>
+<!-- partial -->
+  <script  src="js/script.js"></script>
+<!--<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>-->
+<script src="node_modules/jquery/dist/jquery.js"></script>
+<script>$(document).ready(function() {
+
+    // Fakes the loading setting a timeout
+    setTimeout(function() {
+        $('body').addClass('loaded');
+    }, 200);
+
+});</script>
+<script>
+    $(function () {
+
+        setTimeout(function () {
+
+            $('.loader_bg').fadeToggle();
+        }, 1000);
+    });
+
+</script>
+<script src="lib/wow/wow.js"></script>
+<script src="lib/animate/animate.css"></script>
+<script src="lib/lightbox/js/lightbox.js"></script>
+<script src="lib/typed/typed.js"></script>
+<script src="lib/easing/easing.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/web-animations/2.2.2/web-animations.min.js"></script>
+<script>$( document ).ready(function() {
+    new WOW().init()
+});</script>
+<script src="js/script.js"></script>
+</body>
+</html>
